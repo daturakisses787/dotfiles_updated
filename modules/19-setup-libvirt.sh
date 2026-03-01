@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 # Description: Libvirt/QEMU Virtualisierung einrichten
 # Severity: optional
+# Depends: 02-install-packages
 # Fix: Installiere qemu-full, virt-manager, dnsmasq aus optionalen Paketen
 
 set -euo pipefail

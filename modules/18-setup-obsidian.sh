@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 # Description: Obsidian einrichten (manuell nach Installation)
 # Severity: manual
+# Depends: 02-install-packages
 # Autorun: false
 # Fix: Installiere obsidian aus den optionalen Paketen
 

@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 # Description: GRUB-Theme installieren
 # Severity: optional
+# Depends: 02-install-packages
 # Fix: Prüfe ob GRUB installiert ist und ein Theme in themes/ vorhanden ist
 
 set -euo pipefail

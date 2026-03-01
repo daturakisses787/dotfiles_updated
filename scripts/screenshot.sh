@@ -6,7 +6,8 @@
 set -euo pipefail
 
 readonly SCREENSHOT_DIR="${XDG_PICTURES_DIR:-$HOME/Pictures}/Screenshots"
-readonly TIMESTAMP="$(date +'%Y%m%d_%H%M%S')"
+TIMESTAMP="$(date +'%Y%m%d_%H%M%S')"
+readonly TIMESTAMP
 readonly FILENAME="screenshot_${TIMESTAMP}.png"
 readonly OUTFILE="${SCREENSHOT_DIR}/${FILENAME}"
 

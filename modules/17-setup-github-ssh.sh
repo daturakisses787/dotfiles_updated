@@ -38,7 +38,10 @@ module_run() {
         log_ok "SSH config for GitHub already exists."
     else
         log_info "Adding GitHub SSH config..."
-        cat >> "$ssh_config" << 'SSHEOF'
+        if [[ "${DRY_RUN:-false}" == "true" ]]; then
+            printf '%b[DRY-RUN]%b Append GitHub SSH config to %s\n' "$YELLOW" "$NC" "$ssh_config"
+        else
+            cat >> "$ssh_config" << 'SSHEOF'
 
 Host github.com
     HostName github.com
@@ -46,6 +49,7 @@ Host github.com
     IdentityFile ~/.ssh/id_ed25519
     AddKeysToAgent yes
 SSHEOF
+        fi
         run_cmd chmod 600 "$ssh_config"
         log_ok "SSH config for GitHub added."
     fi

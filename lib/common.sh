@@ -71,11 +71,11 @@ link_config() {
     local dst="$2"
 
     # Create parent directory if needed
-    mkdir -p "$(dirname "$dst")"
+    ensure_dir "$(dirname "$dst")"
 
     # Backup if target exists and is not already a symlink
     if [[ -e "$dst" && ! -L "$dst" ]]; then
-        mkdir -p "$BACKUP_DIR"
+        ensure_dir "$BACKUP_DIR"
         log_warn "Backing up existing: $dst → $BACKUP_DIR/"
         run_cmd mv "$dst" "${BACKUP_DIR}/$(basename "$dst")"
     fi

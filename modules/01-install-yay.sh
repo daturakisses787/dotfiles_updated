@@ -28,6 +28,6 @@ module_run() {
         run_cmd makepkg -si --noconfirm
     )
 
-    rm -rf "$tmp_dir"
+    run_cmd rm -rf "$tmp_dir"
     log_ok "yay installed successfully."
 }

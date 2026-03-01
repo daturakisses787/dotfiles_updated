@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 # Description: Claude Code Konfiguration einrichten
 # Severity: optional
+# Depends: 03-link-configs
 # Fix: Prüfe extras/claude/
 
 set -euo pipefail

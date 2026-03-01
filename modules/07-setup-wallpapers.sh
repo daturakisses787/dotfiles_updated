@@ -20,7 +20,7 @@ module_run() {
 
     # Create .gitkeep if directory is empty
     if [[ -z "$(ls -A "$wallpapers_dir" 2>/dev/null)" ]]; then
-        touch "${wallpapers_dir}/.gitkeep"
+        run_cmd touch "${wallpapers_dir}/.gitkeep"
         log_warn "Wallpapers directory is empty. Add your wallpaper images manually."
     else
         local count
