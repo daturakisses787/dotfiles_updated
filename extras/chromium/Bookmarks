@@ -1,0 +1,157 @@
+{
+   "checksum": "a30c7c4b84f324cf365163455d995e12",
+   "roots": {
+      "bookmark_bar": {
+         "children": [ {
+            "date_added": "13415818719918406",
+            "date_last_used": "13416693641904054",
+            "guid": "6162a2cc-15d5-459d-adb2-ee7570f490c5",
+            "id": "13",
+            "meta_info": {
+               "power_bookmark_meta": ""
+            },
+            "name": "keychron Launcher",
+            "type": "url",
+            "url": "https://launcher.keychron.com/#/not-connect"
+         }, {
+            "date_added": "13415991025880577",
+            "date_last_used": "13416253940156848",
+            "guid": "fdf17d98-309b-4c43-a2cd-ad74418743be",
+            "id": "19",
+            "meta_info": {
+               "power_bookmark_meta": ""
+            },
+            "name": "DARK PROJECT | WEB LAB",
+            "type": "url",
+            "url": "https://software.darkproject.eu/"
+         }, {
+            "date_added": "13415372246659200",
+            "date_last_used": "13416186805435273",
+            "guid": "75da97da-31e5-48ac-a902-8b34d636dd4b",
+            "id": "5",
+            "meta_info": {
+               "power_bookmark_meta": ""
+            },
+            "name": "Google",
+            "type": "url",
+            "url": "https://www.google.com/?hl=de"
+         }, {
+            "date_added": "13415372414071269",
+            "date_last_used": "13416847377050655",
+            "guid": "8beaad93-40be-44b4-8a81-5fa1e6862b65",
+            "id": "6",
+            "meta_info": {
+               "power_bookmark_meta": ""
+            },
+            "name": "Claude",
+            "type": "url",
+            "url": "https://claude.ai/new"
+         }, {
+            "date_added": "13415819610791048",
+            "date_last_used": "13416850512542934",
+            "guid": "1856f8f8-9921-4c71-834a-b904b8b374d5",
+            "id": "14",
+            "meta_info": {
+               "power_bookmark_meta": ""
+            },
+            "name": "GitHub",
+            "type": "url",
+            "url": "https://github.com/"
+         }, {
+            "date_added": "13415819630533833",
+            "date_last_used": "13416190426958935",
+            "guid": "31162139-53a4-468f-b4be-5bf308a6a134",
+            "id": "15",
+            "meta_info": {
+               "power_bookmark_meta": ""
+            },
+            "name": "Google Kalender ",
+            "type": "url",
+            "url": "https://calendar.google.com/calendar/u/0/r"
+         }, {
+            "date_added": "13415372437713375",
+            "date_last_used": "13416524995084033",
+            "guid": "3fdbb29a-412b-423a-9914-ba29d9703375",
+            "id": "7",
+            "meta_info": {
+               "power_bookmark_meta": ""
+            },
+            "name": "YouTube",
+            "type": "url",
+            "url": "https://www.youtube.com/"
+         }, {
+            "date_added": "13415377744575746",
+            "date_last_used": "13416186815642872",
+            "guid": "8c47a2d1-eb0b-46a1-a521-bfa72ac22e09",
+            "id": "11",
+            "meta_info": {
+               "power_bookmark_meta": ""
+            },
+            "name": "Canva",
+            "type": "url",
+            "url": "https://www.canva.com/"
+         }, {
+            "date_added": "13415819659238650",
+            "date_last_used": "13416186816218664",
+            "guid": "c21f28a2-e4ca-4dfb-a614-2eb04b4fc894",
+            "id": "16",
+            "meta_info": {
+               "power_bookmark_meta": ""
+            },
+            "name": "Pixabay - Stock Media",
+            "type": "url",
+            "url": "https://pixabay.com/de/"
+         }, {
+            "date_added": "13415819688295540",
+            "date_last_used": "13416186818201412",
+            "guid": "a65363c5-c61a-47a8-aab9-30571fdd876e",
+            "id": "17",
+            "meta_info": {
+               "power_bookmark_meta": ""
+            },
+            "name": "Unplash - Stock Photos",
+            "type": "url",
+            "url": "https://unsplash.com/"
+         }, {
+            "date_added": "13416154774757351",
+            "date_last_used": "13416518584573915",
+            "guid": "f7df49af-383f-490d-95d2-5d5d878e84ee",
+            "id": "21",
+            "meta_info": {
+               "power_bookmark_meta": ""
+            },
+            "name": "roadmap.sh",
+            "type": "url",
+            "url": "https://roadmap.sh/"
+         } ],
+         "date_added": "13415372230389770",
+         "date_last_used": "0",
+         "date_modified": "13416154774757351",
+         "guid": "0bc5d13f-2cba-5d74-951f-3f233fe6c908",
+         "id": "1",
+         "name": "Bookmarks bar",
+         "type": "folder"
+      },
+      "other": {
+         "children": [  ],
+         "date_added": "13415372230389770",
+         "date_last_used": "0",
+         "date_modified": "13415372246659200",
+         "guid": "82b081ec-3dd3-529c-8475-ab6c344590dd",
+         "id": "2",
+         "name": "Other bookmarks",
+         "type": "folder"
+      },
+      "synced": {
+         "children": [  ],
+         "date_added": "13415372230389770",
+         "date_last_used": "0",
+         "date_modified": "0",
+         "guid": "4cf2e351-0e85-532b-bb37-df045d8f8d0f",
+         "id": "3",
+         "name": "Mobile bookmarks",
+         "type": "folder"
+      }
+   },
+   "version": 1
+}

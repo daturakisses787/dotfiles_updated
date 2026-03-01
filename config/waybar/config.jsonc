@@ -1,0 +1,178 @@
+// waybar/config.jsonc – Waybar Status Bar Configuration
+// Floating bar for Hyprland
+
+{
+    "layer": "top",
+    "position": "top",
+    "height": 36,
+    "spacing": 4,
+    "margin-top": 8,
+    "margin-left": 12,
+    "margin-right": 12,
+    "margin-bottom": 0,
+
+    // Modules
+    "modules-left": [
+        "custom/launcher",
+        "mpris"
+    ],
+    "modules-center": [
+        "hyprland/workspaces",
+        "hyprland/submap"
+    ],
+    "modules-right": [
+        "pulseaudio",
+        "backlight",
+        "network",
+        "battery",
+        "clock",
+        "tray",
+        "custom/caffeine",
+        "custom/power"
+    ],
+
+    // ==============================================================================
+    // Left Modules
+    // ==============================================================================
+    "custom/launcher": {
+        "format": " ",
+        "on-click": "wofi --show drun",
+        "tooltip": false
+    },
+
+    "mpris": {
+        "format": "{player_icon} {artist} - {title}",
+        "format-paused": "{player_icon} {status_icon} {artist} - {title}",
+        "player-icons": {
+            "default": "🎵",
+            "firefox": "󰈹",
+            "chromium": "󰊯",
+            "spotify": "󰓇"
+        },
+        "status-icons": {
+            "paused": "⏸"
+        },
+        "max-length": 40,
+        "tooltip-format": "{player}: {artist} - {title}\n{album}",
+        "on-click": "playerctl play-pause",
+        "on-click-right": "playerctl next",
+        "on-click-middle": "playerctl previous",
+        "on-scroll-up": "playerctl volume 0.05+",
+        "on-scroll-down": "playerctl volume 0.05-"
+    },
+
+    "hyprland/workspaces": {
+        "format": "{id}",
+        "persistent-workspaces": {
+            "*": [1, 2, 3, 4]
+        },
+        "on-click": "activate",
+        "on-scroll-up": "hyprctl dispatch workspace e+1",
+        "on-scroll-down": "hyprctl dispatch workspace e-1"
+    },
+
+    "hyprland/submap": {
+        "format": "<span style=\"italic\"> {}</span>",
+        "tooltip": false,
+        "on-click": "hyprctl dispatch submap reset"
+    },
+
+    // ==============================================================================
+    // Center Modules
+    // ==============================================================================
+
+    // ==============================================================================
+    // Right Modules
+    // ==============================================================================
+    "pulseaudio": {
+        "format": "{icon} {volume}%",
+        "format-muted": "󰝟 Muted",
+        "format-icons": {
+            "headphone":  "󰋋",
+            "headset":    "󰋎",
+            "hands-free": "󰋎",
+            "portable":   "",
+            "car":        "",
+            "hifi":       "",
+            "default":    ["󰕿", "󰖀", "󰕾"]
+        },
+        "on-click": "pavucontrol",
+        "on-scroll-up": "pamixer --increase 5",
+        "on-scroll-down": "pamixer --decrease 5",
+        "tooltip-format": "{source_volume}% 󰍬"
+    },
+
+    "backlight": {
+        "format": "󰃟 {percent}%",
+        "on-scroll-up": "brightnessctl set +5%",
+        "on-scroll-down": "brightnessctl set 5%-",
+        "tooltip": false
+    },
+
+    "network": {
+        "interval": 1,
+        "format-wifi": "󰤨  {bandwidthDownBytes}  {bandwidthUpBytes}",
+        "format-ethernet": "󰈀  {bandwidthDownBytes}  {bandwidthUpBytes}",
+        "format-disconnected": "󰤭 Offline",
+        "format-linked": "󰈀 {ifname} (No IP)",
+        "tooltip-format": "{ifname}: {ipaddr}/{cidr}",
+        "tooltip-format-wifi": "{essid} ({signalStrength}%)\n{ifname}: {ipaddr}/{cidr}",
+        "on-click": "nm-connection-editor"
+    },
+
+    "battery": {
+        "format": "{icon} {capacity}%",
+        "format-charging": "󰂄 {capacity}%",
+        "format-plugged": "󰚥 {capacity}%",
+        "format-full": "󰁹 {capacity}%",
+        "format-icons": ["󰁺", "󰁻", "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰂂", "󰁹"],
+        "states": {
+            "warning": 30,
+            "critical": 15
+        },
+        "tooltip-format": "{timeTo}\nCapacity: {capacity}%\nPower: {power}W"
+    },
+
+    "clock": {
+        "format": "󰸘 {:%H:%M}",
+        "format-alt": "󰃭 {:%a, %d. %b %Y}",
+        "tooltip-format": "<big>{:%A, %d. %B %Y}</big>\n<tt><small>{calendar}</small></tt>",
+        "calendar": {
+            "mode": "month",
+            "mode-mon-col": 3,
+            "weeks-pos": "right",
+            "on-scroll": 1,
+            "format": {
+                "months":     "<span color='#cba6f7'><b>{}</b></span>",
+                "days":       "<span color='#cdd6f4'>{}</span>",
+                "weeks":      "<span color='#a6e3a1'><b>W{}</b></span>",
+                "weekdays":   "<span color='#89b4fa'><b>{}</b></span>",
+                "today":      "<span color='#f38ba8'><b><u>{}</u></b></span>"
+            }
+        },
+        "actions": {
+            "on-scroll-up": "shift_up",
+            "on-scroll-down": "shift_down"
+        }
+    },
+
+    "tray": {
+        "icon-size": 16,
+        "spacing": 8
+    },
+
+    "custom/caffeine": {
+        "exec": "~/.config/scripts/caffeine.sh status",
+        "return-type": "json",
+        "interval": "once",
+        "signal": 8,
+        "on-click": "~/.config/scripts/caffeine.sh toggle",
+        "tooltip": true
+    },
+
+    "custom/power": {
+        "format": "⏻",
+        "on-click": "~/.config/scripts/power-menu.sh",
+        "tooltip": false
+    }
+}

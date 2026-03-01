@@ -1,0 +1,50 @@
+#!/usr/bin/env bash
+# Switch Teufel REAL BLUE NC to A2DP when it connects
+# Triggered by systemd when the device appears on D-Bus
+set -euo pipefail
+
+DEVICE="6C:47:60:3F:BE:4B"
+CARD="bluez_card.${DEVICE//:/_}"
+SINK="bluez_output.${DEVICE//:/_}.1"
+MAX_WAIT=30
+
+log() { echo "[bt-teufel-a2dp] $*" >&2; }
+
+# Wait for PulseAudio/PipeWire card to appear
+log "Waiting for $CARD..."
+for i in $(seq 1 $MAX_WAIT); do
+    if pactl list cards short 2>/dev/null | grep -q "$CARD"; then
+        log "Card found after ${i}s"
+        break
+    fi
+    sleep 1
+done
+
+# Wait for a2dp-sink profile to become available, then switch
+log "Waiting for A2DP profile..."
+for i in $(seq 1 $MAX_WAIT); do
+    # Check if already on A2DP
+    active=$(pactl list cards 2>/dev/null \
+        | awk "/Name: ${CARD}/{f=1} f && /Active Profile:/{print; exit}" \
+        | awk '{print $NF}')
+    if [[ "$active" == *"a2dp"* ]]; then
+        log "Already on A2DP profile: $active"
+        exit 0
+    fi
+
+    # Check if a2dp-sink is available
+    if pactl list cards 2>/dev/null \
+        | awk "/Name: ${CARD}/{f=1} f && /^$/{f=0} f" \
+        | grep -q "a2dp-sink:"; then
+        log "Switching to A2DP..."
+        pactl set-card-profile "$CARD" a2dp-sink
+        pactl set-default-sink "$SINK" 2>/dev/null || true
+        log "Done. Profile: $(pactl list cards 2>/dev/null \
+            | awk "/Name: ${CARD}/{f=1} f && /Active Profile:/{print \$NF; exit}")"
+        exit 0
+    fi
+
+    sleep 1
+done
+
+log "A2DP not available after ${MAX_WAIT}s, staying on current profile"

@@ -1,0 +1,51 @@
+[Default Applications]
+# Text / Code
+text/plain=org.gnome.TextEditor.desktop
+text/markdown=org.gnome.TextEditor.desktop
+text/x-readme=org.gnome.TextEditor.desktop
+application/json=org.gnome.TextEditor.desktop
+application/xml=org.gnome.TextEditor.desktop
+
+# Images
+image/png=org.kde.gwenview.desktop
+image/jpeg=org.kde.gwenview.desktop
+image/gif=org.kde.gwenview.desktop
+image/webp=org.kde.gwenview.desktop
+image/svg+xml=org.kde.gwenview.desktop
+image/bmp=org.kde.gwenview.desktop
+image/tiff=org.kde.gwenview.desktop
+
+# Video
+video/mp4=vlc.desktop
+video/x-matroska=vlc.desktop
+video/x-msvideo=vlc.desktop
+video/webm=vlc.desktop
+video/x-flv=vlc.desktop
+
+# Audio
+audio/mpeg=vlc.desktop
+audio/flac=vlc.desktop
+audio/ogg=vlc.desktop
+audio/x-wav=vlc.desktop
+audio/x-vorbis+ogg=vlc.desktop
+audio/mp4=vlc.desktop
+
+# Web / Browser
+text/html=chromium.desktop
+x-scheme-handler/http=chromium.desktop
+x-scheme-handler/https=chromium.desktop
+x-scheme-handler/about=chromium.desktop
+x-scheme-handler/unknown=chromium.desktop
+
+# PDF
+application/pdf=chromium.desktop
+
+# File Manager
+inode/directory=org.kde.dolphin.desktop
+
+# Archives
+application/zip=org.kde.ark.desktop
+application/x-tar=org.kde.ark.desktop
+application/gzip=org.kde.ark.desktop
+application/x-7z-compressed=org.kde.ark.desktop
+application/x-rar=org.kde.ark.desktop

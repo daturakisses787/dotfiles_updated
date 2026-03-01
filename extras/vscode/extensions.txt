@@ -1,0 +1,14 @@
+anthropic.claude-code
+catppuccin.catppuccin-vsc
+catppuccin.catppuccin-vsc-icons
+eamodio.gitlens
+esbenp.prettier-vscode
+foxundermoon.shell-format
+mechatroner.rainbow-csv
+ms-python.debugpy
+ms-python.python
+ms-python.vscode-python-envs
+oderwat.indent-rainbow
+streetsidesoftware.code-spell-checker
+timonwong.shellcheck
+yzhang.markdown-all-in-one

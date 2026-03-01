@@ -1,0 +1,59 @@
+#!/usr/bin/env bash
+# Polls for Teufel REAL BLUE NC connection and switches to A2DP
+# Runs as a persistent systemd user service
+set -euo pipefail
+
+CARD="bluez_card.6C_47_60_3F_BE_4B"
+SINK="bluez_output.6C_47_60_3F_BE_4B.1"
+POLL_INTERVAL=3
+A2DP_WAIT_MAX=30
+
+log() { systemd-cat -t bt-teufel-monitor -p info -- "$*" 2>/dev/null || echo "$*" >&2; }
+
+was_connected=false
+
+while true; do
+    sleep "$POLL_INTERVAL"
+
+    # Check if device card exists in PipeWire
+    if ! pactl list cards short 2>/dev/null | grep -q "$CARD"; then
+        was_connected=false
+        continue
+    fi
+
+    # Get active profile
+    active=$(pactl list cards 2>/dev/null \
+        | awk "/Name: ${CARD}/{f=1} f && /Active Profile:/{print \$NF; exit}")
+
+    # Already on A2DP - nothing to do
+    if [[ "$active" == *"a2dp"* ]]; then
+        was_connected=true
+        continue
+    fi
+
+    # Device just appeared or is on wrong profile
+    if [[ "$was_connected" == false ]] || [[ "$active" != *"a2dp"* ]]; then
+        was_connected=true
+        log "Device on profile '$active', trying to switch to A2DP..."
+
+        # Wait up to A2DP_WAIT_MAX seconds for a2dp-sink to become available
+        switched=false
+        for i in $(seq 1 "$A2DP_WAIT_MAX"); do
+            if pactl list cards 2>/dev/null \
+                | awk "/Name: ${CARD}/{f=1} f && /^$/{f=0} f" \
+                | grep -q "a2dp-sink:"; then
+                if pactl set-card-profile "$CARD" a2dp-sink 2>/dev/null; then
+                    pactl set-default-sink "$SINK" 2>/dev/null || true
+                    log "Switched to A2DP (after ${i}s)"
+                    switched=true
+                fi
+                break
+            fi
+            sleep 1
+        done
+
+        if [[ "$switched" == false ]]; then
+            log "A2DP not available after ${A2DP_WAIT_MAX}s"
+        fi
+    fi
+done

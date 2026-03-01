@@ -1,0 +1,12 @@
+[SddmGreeterTheme]
+Name=dotfiles-dark
+Description=Minimalistic dark SDDM theme with custom wallpaper
+Author=daturakisses787
+Version=1.0
+Website=
+Screenshot=
+MainScript=Main.qml
+ConfigFile=theme.conf
+TranslationsDirectory=translations
+Type=sddm-theme
+Theme-API=2.0
