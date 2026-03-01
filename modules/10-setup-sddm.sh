@@ -1,0 +1,55 @@
+#!/usr/bin/env bash
+# Description: SDDM Display-Manager mit Custom Theme einrichten
+# Severity: wichtig
+# Depends: 02-install-packages
+# Fix: Installiere sddm und prüfe config/sddm/dotfiles-dark/
+
+set -euo pipefail
+
+module_run() {
+    if ! pkg_installed sddm; then
+        log_warn "sddm not installed. Install via module 02."
+        return 1
+    fi
+
+    # Copy custom SDDM theme to system directory
+    local theme_src="${DOTFILES_DIR}/config/sddm/dotfiles-dark"
+    local theme_dst="/usr/share/sddm/themes/dotfiles-dark"
+
+    if [[ -d "$theme_src" ]]; then
+        if [[ -d "$theme_dst" ]] && diff -rq "$theme_src" "$theme_dst" &>/dev/null; then
+            log_ok "SDDM theme already installed."
+        else
+            log_info "Installing custom SDDM theme..."
+            run_cmd sudo cp -r "$theme_src" "$theme_dst"
+            log_ok "SDDM theme installed to $theme_dst"
+        fi
+    else
+        log_warn "SDDM theme source not found: $theme_src"
+    fi
+
+    # Configure SDDM to use custom theme
+    local sddm_conf="/etc/sddm.conf.d/theme.conf"
+    local expected_content="[Theme]
+Current=dotfiles-dark"
+
+    if [[ -f "$sddm_conf" ]] && grep -q "Current=dotfiles-dark" "$sddm_conf" 2>/dev/null; then
+        log_ok "SDDM already configured to use dotfiles-dark theme."
+    else
+        log_info "Configuring SDDM theme..."
+        run_cmd sudo mkdir -p /etc/sddm.conf.d
+        echo "$expected_content" | run_cmd sudo tee "$sddm_conf" > /dev/null
+        log_ok "SDDM configured with dotfiles-dark theme."
+    fi
+
+    # Enable SDDM service
+    if service_enabled sddm.service; then
+        log_ok "sddm.service is already enabled."
+    else
+        log_info "Enabling sddm.service..."
+        run_cmd sudo systemctl enable sddm.service
+        log_ok "sddm.service enabled."
+    fi
+
+    log_ok "SDDM setup complete."
+}

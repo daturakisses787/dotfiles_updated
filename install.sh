@@ -113,6 +113,14 @@ run_module_safe() {
         return 0
     fi
 
+    # Skip manual modules unless explicitly selected via --module=
+    local autorun
+    autorun="$(module_get_meta "$mod_file" "Autorun")"
+    if [[ "$autorun" == "false" && -z "$SELECTED_MODULE" ]]; then
+        log_info "Skipping manual module: $mod_name (run with --module=$mod_name)"
+        return 0
+    fi
+
     local description
     description="$(module_get_meta "$mod_file" "Description")"
     log_title "${description:-$mod_name}"
