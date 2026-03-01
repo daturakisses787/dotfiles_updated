@@ -1,0 +1,43 @@
+# desktop.txt – Desktop environment components
+# Status bar, launcher, notifications, lockscreen, wallpaper, clipboard, file manager, browser
+
+# Bar & Launcher
+waybar
+wofi
+rofi
+
+# Notifications
+dunst
+libnotify
+
+# Lockscreen & Idle
+hyprlock
+hypridle
+
+# Wallpaper
+swww
+
+# Clipboard
+cliphist
+wl-clipboard
+
+# Screenshot
+grim
+slurp
+
+# Brightness
+brightnessctl
+
+# File Manager
+thunar
+thunar-volman
+thunar-archive-plugin
+tumbler
+gvfs
+
+# Browser
+chromium
+firefox
+
+# Editor
+gnome-text-editor

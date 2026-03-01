@@ -1,0 +1,15 @@
+# media.txt – PipeWire audio stack & media tools
+pipewire
+pipewire-alsa
+pipewire-jack
+pipewire-pulse
+wireplumber
+pamixer
+playerctl
+imagemagick
+vlc
+pavucontrol
+gst-libav
+gst-plugin-pipewire
+gst-plugins-bad
+gst-plugins-ugly

@@ -1,0 +1,5 @@
+# terminal.txt – Terminal emulator & shell
+kitty
+zsh
+zsh-autosuggestions
+zsh-syntax-highlighting

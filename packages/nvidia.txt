@@ -1,0 +1,5 @@
+# nvidia.txt – NVIDIA drivers & utilities
+nvidia-open
+nvidia-utils
+lib32-nvidia-utils
+mesa-utils

@@ -1,0 +1,10 @@
+# network.txt – Network & Bluetooth
+networkmanager
+network-manager-applet
+networkmanager-openconnect
+networkmanager-openvpn
+firewalld
+firewall-applet
+bluez
+bluez-utils
+blueman

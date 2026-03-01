@@ -1,0 +1,26 @@
+# aur.txt – AUR packages (installed via yay)
+# Cursor & Icons
+bibata-cursor-theme-bin
+candy-icons-git
+sweet-folders-icons-git
+
+# GTK Theme
+arc-gtk-theme
+
+# Shell Theme
+zsh-theme-powerlevel10k-git
+
+# SDDM Theme
+sddm-sugar-dark
+
+# Hyprland compositor (custom build)
+waywall-working-git
+
+# OBS WebSocket CLI
+obs-cmd
+
+# AI Assistant
+claude-code
+
+# Misc
+bridge-utils

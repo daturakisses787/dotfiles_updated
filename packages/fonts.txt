@@ -1,0 +1,11 @@
+# fonts.txt – Fonts
+ttf-jetbrains-mono-nerd
+ttf-bitstream-vera
+ttf-dejavu
+ttf-liberation
+ttf-opensans
+cantarell-fonts
+noto-fonts
+noto-fonts-cjk
+noto-fonts-emoji
+noto-fonts-extra

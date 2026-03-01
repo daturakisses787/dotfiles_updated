@@ -1,0 +1,27 @@
+# optional.txt – Optional applications (installed separately on request)
+
+# Communication
+discord
+thunderbird
+kdeconnect
+
+# Multimedia
+spotify-launcher
+obs-studio
+gimp
+gwenview
+
+# Productivity
+obsidian
+libreoffice-still
+
+# Virtualization
+qemu-full
+virt-manager
+virt-viewer
+dnsmasq
+
+# Gaming
+steam
+lutris
+prismlauncher

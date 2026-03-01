@@ -1,0 +1,27 @@
+# core.txt – Hyprland / Wayland core packages
+# These are essential for the desktop session to function
+
+base
+base-devel
+linux
+linux-firmware
+linux-headers
+grub
+efibootmgr
+
+hyprland
+xdg-desktop-portal-hyprland
+xdg-desktop-portal-gtk
+xdg-user-dirs
+xdg-utils
+polkit-kde-agent
+qt5-wayland
+qt6-wayland
+sddm
+
+# XWayland support
+xorg-server
+xorg-xinit
+xorg-xinput
+xorg-xrandr
+xorg-xkill
