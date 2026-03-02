@@ -74,11 +74,11 @@ dotfiles_updated/
 | 04  | setup-shell               | wichtig  | ZSH + Oh-My-Zsh + Powerlevel10k                       |
 | 05  | setup-theming             | wichtig  | GTK/Qt/Cursor/Icons Theme-System                       |
 | 06  | install-fonts             | wichtig  | Schriftarten + Font-Cache                              |
-| 07  | setup-wallpapers          | optional | Wallpaper-Verzeichnis + swww                           |
+| 07  | setup-wallpapers          | optional | Wallpapers aus Git-Repo klonen + swww                  |
 | 08  | setup-nvidia              | wichtig  | NVIDIA-Umgebungsvariablen + Treiber                    |
 | 09  | setup-bluetooth           | wichtig  | Bluetooth-Dienst aktivieren                            |
 | 10  | setup-sddm                | wichtig  | SDDM mit Custom Theme                                 |
-| 11  | setup-grub-theme          | optional | GRUB-Theme installieren                                |
+| 11  | setup-grub-theme          | optional | LoboGrubTheme installieren                             |
 | 12  | setup-systemd-services    | optional | Bluetooth A2DP User-Service                            |
 | 13  | setup-default-apps        | optional | Standard-Anwendungen (mimeapps.list)                   |
 | 14  | setup-chromium            | optional | Chromium Bookmarks importieren                         |
@@ -168,7 +168,21 @@ Scripts aus `scripts/` (14 Stück) werden nach `~/.local/bin/` verlinkt.
 
 ## Wallpapers
 
-Wallpaper-Dateien sind zu groß für Git. Nach dem Klonen:
+Wallpaper-Dateien sind zu groß für Git und werden in einem separaten Repository verwaltet.
+
+### Automatisch (empfohlen)
+
+`WALLPAPER_REPO` in `install.sh` setzen – Modul 07 klont die Bilder automatisch:
+
+```bash
+# In install.sh die Variable anpassen:
+WALLPAPER_REPO="https://github.com/<user>/wallpapers.git"
+
+# Oder als Umgebungsvariable:
+WALLPAPER_REPO="https://github.com/<user>/wallpapers.git" ./install.sh
+```
+
+### Manuell
 
 1. Wallpapers nach `wallpapers/` kopieren
 2. Zuordnung in `themes/wallpaper-map.conf` prüfen/anpassen
