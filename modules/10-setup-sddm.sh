@@ -28,6 +28,24 @@ module_run() {
         log_warn "SDDM theme source not found: $theme_src"
     fi
 
+    # Copy wallpaper as SDDM background
+    local wp_name="${SDDM_WALLPAPER:-arch-chan_to.png}"
+    local wp_src="${DOTFILES_DIR}/wallpapers/${wp_name}"
+    local bg_dst="${theme_dst}/background.png"
+
+    if [[ -f "$wp_src" ]]; then
+        if [[ -f "$bg_dst" ]] && diff -q "$wp_src" "$bg_dst" &>/dev/null; then
+            log_ok "SDDM background already up to date."
+        else
+            log_info "Copying ${wp_name} as SDDM background..."
+            run_cmd sudo cp "$wp_src" "$bg_dst"
+            log_ok "SDDM background set to ${wp_name}."
+        fi
+    else
+        log_warn "SDDM wallpaper not found: ${wp_src}"
+        log_info "Set SDDM_WALLPAPER in install.sh or copy wallpapers first (module 07)."
+    fi
+
     # Configure SDDM to use custom theme
     local sddm_conf="/etc/sddm.conf.d/theme.conf"
     local expected_content="[Theme]

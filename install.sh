@@ -27,9 +27,13 @@ export BACKUP_DIR
 DRY_RUN="${DRY_RUN:-false}"
 export DRY_RUN
 
-# Wallpaper repository – set your own Git URL here
-WALLPAPER_REPO="${WALLPAPER_REPO:-}"
+# Wallpaper repository – cloned by module 07
+WALLPAPER_REPO="${WALLPAPER_REPO:-https://github.com/daturakisses787/wallpapers.git}"
 export WALLPAPER_REPO
+
+# SDDM login background wallpaper (filename inside wallpapers/)
+SDDM_WALLPAPER="${SDDM_WALLPAPER:-arch-chan_to.png}"
+export SDDM_WALLPAPER
 
 SELECTED_MODULE=""
 SKIP_MODULES=""
