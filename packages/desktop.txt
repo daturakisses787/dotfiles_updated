@@ -34,6 +34,7 @@ thunar-volman
 thunar-archive-plugin
 tumbler
 gvfs
+gvfs-mtp
 
 # Browser
 chromium

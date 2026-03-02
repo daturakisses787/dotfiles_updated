@@ -21,6 +21,11 @@ virt-manager
 virt-viewer
 dnsmasq
 
+# Content Creation
+blender
+inkscape
+audacity
+
 # Gaming
 steam
 lutris

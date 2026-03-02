@@ -22,5 +22,8 @@ obs-cmd
 # AI Assistant
 claude-code
 
+# Content Creation
+buzz
+
 # Misc
 bridge-utils
