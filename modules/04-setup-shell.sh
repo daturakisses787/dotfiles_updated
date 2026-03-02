@@ -34,6 +34,15 @@ module_run() {
     # Link ZSH config files
     local zsh_src="${DOTFILES_DIR}/config/zsh"
 
+    # Link .zshenv to home (sets ZDOTDIR)
+    if [[ -f "${zsh_src}/.zshenv" ]]; then
+        if link_is_correct "${HOME}/.zshenv" "${zsh_src}/.zshenv"; then
+            log_ok "Already linked: .zshenv"
+        else
+            link_config "${zsh_src}/.zshenv" "${HOME}/.zshenv"
+        fi
+    fi
+
     # Link .zshrc to home
     if [[ -f "${zsh_src}/.zshrc" ]]; then
         if link_is_correct "${HOME}/.zshrc" "${zsh_src}/.zshrc"; then

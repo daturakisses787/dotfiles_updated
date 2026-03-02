@@ -21,6 +21,10 @@ module_run() {
         rofi
         Thunar
         xfce4
+        Kvantum
+        qt5ct
+        qt6ct
+        gtk-3.0
     )
 
     for dir in "${config_dirs[@]}"; do
