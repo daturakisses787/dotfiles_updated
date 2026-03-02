@@ -18,14 +18,31 @@ module_run() {
     local wallpapers_dir="${DOTFILES_DIR}/wallpapers"
     ensure_dir "$wallpapers_dir"
 
-    # Create .gitkeep if directory is empty
-    if [[ -z "$(ls -A "$wallpapers_dir" 2>/dev/null)" ]]; then
-        run_cmd touch "${wallpapers_dir}/.gitkeep"
-        log_warn "Wallpapers directory is empty. Add your wallpaper images manually."
+    # Check if wallpapers are already present
+    local img_count
+    img_count="$(find "$wallpapers_dir" -maxdepth 1 -type f \( -name '*.jpg' -o -name '*.jpeg' -o -name '*.png' -o -name '*.webp' \) 2>/dev/null | wc -l)"
+
+    if [[ "$img_count" -gt 0 ]]; then
+        log_ok "Found ${img_count} wallpaper(s) in wallpapers/."
+    elif [[ -n "${WALLPAPER_REPO:-}" ]]; then
+        # Clone wallpaper repo into wallpapers directory
+        log_info "Cloning wallpapers from ${WALLPAPER_REPO}..."
+        local tmpdir
+        tmpdir="$(mktemp -d)"
+        run_cmd git clone --depth 1 "$WALLPAPER_REPO" "$tmpdir"
+        # Copy image files only (skip .git and other metadata)
+        if [[ "$DRY_RUN" != "true" ]]; then
+            find "$tmpdir" -maxdepth 1 -type f \( -name '*.jpg' -o -name '*.jpeg' -o -name '*.png' -o -name '*.webp' \) -exec cp {} "$wallpapers_dir/" \;
+            img_count="$(find "$wallpapers_dir" -maxdepth 1 -type f \( -name '*.jpg' -o -name '*.jpeg' -o -name '*.png' -o -name '*.webp' \) | wc -l)"
+            log_ok "Cloned ${img_count} wallpaper(s) from repository."
+        else
+            log_info "[DRY-RUN] Would copy wallpapers from cloned repo."
+        fi
+        rm -rf "$tmpdir"
     else
-        local count
-        count="$(find "$wallpapers_dir" -maxdepth 1 -type f \( -name '*.jpg' -o -name '*.png' -o -name '*.webp' \) | wc -l)"
-        log_ok "Found ${count} wallpaper(s) in wallpapers/."
+        run_cmd touch "${wallpapers_dir}/.gitkeep"
+        log_warn "Wallpapers directory is empty."
+        log_info "Set WALLPAPER_REPO in install.sh or copy wallpapers manually."
     fi
 
     # Link wallpaper scripts if they exist

@@ -27,6 +27,10 @@ export BACKUP_DIR
 DRY_RUN="${DRY_RUN:-false}"
 export DRY_RUN
 
+# Wallpaper repository – set your own Git URL here
+WALLPAPER_REPO="${WALLPAPER_REPO:-}"
+export WALLPAPER_REPO
+
 SELECTED_MODULE=""
 SKIP_MODULES=""
 
