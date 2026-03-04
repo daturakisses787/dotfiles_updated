@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 # Description: Systemd-User-Services einrichten (Bluetooth A2DP)
-# Severity: optional
+# Severity: wichtig
 # Depends: 09-setup-bluetooth
 # Fix: Prüfe systemd/ Verzeichnis und Bluetooth-Scripts
 

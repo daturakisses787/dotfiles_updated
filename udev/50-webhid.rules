@@ -1,0 +1,3 @@
+# Allow WebHID access for browser-based device configurators
+# Covers: Keychron (launcher.keychron.com), Dark Project, and similar WebHID tools
+KERNEL=="hidraw*", SUBSYSTEM=="hidraw", TAG+="uaccess"

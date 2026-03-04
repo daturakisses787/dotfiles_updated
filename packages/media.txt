@@ -3,6 +3,7 @@ pipewire
 pipewire-alsa
 pipewire-jack
 pipewire-pulse
+pipewire-audio
 wireplumber
 pamixer
 playerctl
