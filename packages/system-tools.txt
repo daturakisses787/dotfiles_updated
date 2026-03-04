@@ -1,5 +1,6 @@
 # system-tools.txt – CLI tools, dev tools, system utilities
 git
+github-cli
 openssh
 curl
 wget
