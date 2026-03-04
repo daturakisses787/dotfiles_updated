@@ -71,5 +71,55 @@ module_run() {
         log_info "Run it manually to regenerate theme configs: $gen_script"
     fi
 
+    # Apply default theme if no theme is active yet
+    local default_group="blue-dark"
+    local group_dir="${DOTFILES_DIR}/themes/${default_group}"
+    local hypr_theme="${CONFIG_DIR}/hypr/theme.conf"
+
+    if [[ ! -e "$hypr_theme" ]] && [[ -d "$group_dir" ]]; then
+        log_info "No active theme found – applying default: ${default_group}"
+
+        # Hyprland
+        ln -sfn "${group_dir}/hyprland.conf" "$hypr_theme"
+
+        # Kitty
+        mkdir -p "${CONFIG_DIR}/kitty/themes"
+        if [[ -f "${group_dir}/kitty.conf" ]]; then
+            ln -sfn "${group_dir}/kitty.conf" "${CONFIG_DIR}/kitty/themes/active.conf"
+        fi
+
+        # Waybar (copy, not symlink – matches theme-toggle.sh behavior)
+        if [[ -f "${group_dir}/waybar.css" ]]; then
+            cp "${group_dir}/waybar.css" "${CONFIG_DIR}/waybar/style.css"
+        fi
+
+        # Wofi
+        if [[ -f "${group_dir}/wofi.css" ]]; then
+            ln -sfn "${group_dir}/wofi.css" "${CONFIG_DIR}/wofi/style.css"
+        fi
+
+        # Dunst
+        mkdir -p "${CONFIG_DIR}/dunst"
+        if [[ -f "${group_dir}/dunst.conf" ]]; then
+            ln -sfn "${group_dir}/dunst.conf" "${CONFIG_DIR}/dunst/dunstrc"
+        fi
+
+        # Fastfetch
+        mkdir -p "${CONFIG_DIR}/fastfetch"
+        if [[ -f "${group_dir}/fastfetch.jsonc" ]]; then
+            ln -sfn "${group_dir}/fastfetch.jsonc" "${CONFIG_DIR}/fastfetch/config.jsonc"
+        fi
+
+        log_ok "Default theme '${default_group}' applied."
+    elif [[ -e "$hypr_theme" ]]; then
+        log_ok "Theme already active: $(readlink -f "$hypr_theme" 2>/dev/null || echo "$hypr_theme")"
+    fi
+
+    # Set icon theme via gsettings (needed for Wayland/Hyprland GTK apps)
+    if command -v gsettings &>/dev/null; then
+        gsettings set org.gnome.desktop.interface icon-theme 'Sweet-Rainbow' 2>/dev/null || true
+        log_ok "Icon theme set via gsettings: Sweet-Rainbow"
+    fi
+
     log_ok "Theming setup complete."
 }

@@ -84,6 +84,7 @@ apply_gtk_qt() {
 
     # GTK via gsettings
     if command -v gsettings &>/dev/null; then
+        gsettings set org.gnome.desktop.interface icon-theme 'Sweet-Rainbow' 2>/dev/null || true
         if [[ "$theme_type" == "dark" ]]; then
             gsettings set org.gnome.desktop.interface gtk-theme 'Arc-Darker' 2>/dev/null || true
             gsettings set org.gnome.desktop.interface color-scheme 'prefer-dark' 2>/dev/null || true
@@ -176,6 +177,7 @@ apply_theme() {
 
     # Dunst: symlink config and reload
     local dunst_conf="${CONFIG_DIR}/dunst/dunstrc"
+    mkdir -p "${CONFIG_DIR}/dunst"
     if [[ -f "${group_dir}/dunst.conf" ]]; then
         ln -sfn "${group_dir}/dunst.conf" "$dunst_conf"
         pkill -SIGUSR2 dunst 2>/dev/null || true
@@ -185,6 +187,7 @@ apply_theme() {
 
     # Fastfetch: symlink config
     local fastfetch_conf="${CONFIG_DIR}/fastfetch/config.jsonc"
+    mkdir -p "${CONFIG_DIR}/fastfetch"
     if [[ -f "${group_dir}/fastfetch.jsonc" ]]; then
         ln -sfn "${group_dir}/fastfetch.jsonc" "$fastfetch_conf"
     fi

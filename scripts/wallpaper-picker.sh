@@ -4,7 +4,9 @@
 
 set -euo pipefail
 
-readonly WALLPAPER_DIR="${WALLPAPER_DIR:-$HOME/wallpapers}"
+WALLPAPER_DIR="${WALLPAPER_DIR:-$HOME/wallpapers}"
+WALLPAPER_DIR="$(readlink -f "$WALLPAPER_DIR")"
+readonly WALLPAPER_DIR
 readonly CURRENT_LINK="${XDG_CACHE_HOME:-$HOME/.cache}/current-wallpaper"
 readonly ROFI_THEME="${XDG_CONFIG_HOME:-$HOME/.config}/rofi/wallpaper-picker.rasi"
 

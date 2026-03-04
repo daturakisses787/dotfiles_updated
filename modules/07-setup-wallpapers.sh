@@ -45,6 +45,26 @@ module_run() {
         log_info "Set WALLPAPER_REPO in install.sh or copy wallpapers manually."
     fi
 
+    # Symlink ~/wallpapers → dotfiles wallpapers directory
+    local wallpapers_link="${HOME}/wallpapers"
+    if link_is_correct "$wallpapers_link" "$wallpapers_dir"; then
+        log_ok "Already linked: ~/wallpapers"
+    else
+        link_config "$wallpapers_dir" "$wallpapers_link"
+    fi
+
+    # Set initial wallpaper if swww is running but no wallpaper is displayed
+    if pgrep -x swww-daemon &>/dev/null && [[ "$img_count" -gt 0 ]]; then
+        if ! swww query 2>/dev/null | grep -q "image:"; then
+            local first_wp
+            first_wp="$(find "$wallpapers_dir" -maxdepth 1 -type f \( -name '*.jpg' -o -name '*.png' -o -name '*.webp' \) | shuf -n 1)"
+            if [[ -n "$first_wp" ]]; then
+                run_cmd swww img "$first_wp" --transition-type wipe --transition-duration 2
+                log_ok "Initial wallpaper set: $(basename "$first_wp")"
+            fi
+        fi
+    fi
+
     # Link wallpaper scripts if they exist
     local -a wp_scripts=(wallpaper.sh wallpaper-picker.sh)
     for script in "${wp_scripts[@]}"; do

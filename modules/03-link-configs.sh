@@ -15,8 +15,6 @@ module_run() {
         waybar
         kitty
         wofi
-        dunst
-        fastfetch
         btop
         rofi
         Thunar

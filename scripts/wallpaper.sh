@@ -5,7 +5,9 @@
 
 set -euo pipefail
 
-readonly WALLPAPER_DIR="${WALLPAPER_DIR:-$HOME/wallpapers}"
+WALLPAPER_DIR="${WALLPAPER_DIR:-$HOME/wallpapers}"
+WALLPAPER_DIR="$(readlink -f "$WALLPAPER_DIR")"
+readonly WALLPAPER_DIR
 readonly INTERVAL="${WALLPAPER_INTERVAL:-3600}"  # 60 minutes
 readonly CURRENT_LINK="${XDG_CACHE_HOME:-$HOME/.cache}/current-wallpaper"
 readonly TRANSITION="${WALLPAPER_TRANSITION:-wipe}"
