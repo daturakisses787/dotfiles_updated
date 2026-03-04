@@ -50,6 +50,12 @@ export XDG_CACHE_HOME="${XDG_CACHE_HOME:-$HOME/.cache}"
 export XDG_STATE_HOME="${XDG_STATE_HOME:-$HOME/.local/state}"
 
 # ==============================================================================
+# SSH Agent
+# ==============================================================================
+export SSH_AUTH_SOCK="${XDG_RUNTIME_DIR}/ssh-agent.socket"
+ssh-add -l &>/dev/null || ssh-add -q ~/.ssh/id_ed25519 &>/dev/null
+
+# ==============================================================================
 # Wayland Environment
 # ==============================================================================
 export MOZ_ENABLE_WAYLAND=1
