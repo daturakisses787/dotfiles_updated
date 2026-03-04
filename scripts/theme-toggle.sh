@@ -77,7 +77,7 @@ apply_gtk_qt() {
 
     local gtk_theme_name
     if [[ "$theme_type" == "dark" ]]; then
-        gtk_theme_name="Arc-Darker"
+        gtk_theme_name="Arc-Dark"
     else
         gtk_theme_name="Arc-Lighter"
     fi
@@ -86,7 +86,7 @@ apply_gtk_qt() {
     if command -v gsettings &>/dev/null; then
         gsettings set org.gnome.desktop.interface icon-theme 'Sweet-Rainbow' 2>/dev/null || true
         if [[ "$theme_type" == "dark" ]]; then
-            gsettings set org.gnome.desktop.interface gtk-theme 'Arc-Darker' 2>/dev/null || true
+            gsettings set org.gnome.desktop.interface gtk-theme 'Arc-Dark' 2>/dev/null || true
             gsettings set org.gnome.desktop.interface color-scheme 'prefer-dark' 2>/dev/null || true
         else
             gsettings set org.gnome.desktop.interface gtk-theme 'Arc-Lighter' 2>/dev/null || true
