@@ -8,7 +8,7 @@ set -euo pipefail
 # ---------------------------------------------------------------------------
 
 STATE_FILE="${HOME}/.cache/timestamp-session"
-TIMESTAMP_DIR="${HOME}/Documents/timestamps"
+TIMESTAMP_DIR="${HOME}/Videos/timestamps"
 
 # ---------------------------------------------------------------------------
 # Helper: format elapsed seconds as HH:MM:SS
@@ -57,7 +57,7 @@ cmd_marker() {
         local start_time timestamp_human log_name log_file
         start_time="$(date +%s)"
         timestamp_human="$(date '+%Y-%m-%d %H:%M:%S')"
-        log_name="session_$(date '+%Y%m%d_%H%M%S').md"
+        log_name="$(date '+%Y-%m-%d %H-%M-%S').md"
         log_file="${TIMESTAMP_DIR}/${log_name}"
 
         # Persist session state: start_time|log_file
