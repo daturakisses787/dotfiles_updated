@@ -162,11 +162,11 @@
     },
 
     "custom/caffeine": {
-        "exec": "~/.config/scripts/caffeine.sh status",
+        "exec": "~/.local/bin/caffeine.sh status",
         "return-type": "json",
         "interval": "once",
         "signal": 8,
-        "on-click": "~/.config/scripts/caffeine.sh toggle",
+        "on-click": "~/.local/bin/caffeine.sh toggle",
         "tooltip": true
     },
 
