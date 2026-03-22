@@ -157,17 +157,6 @@
                "name": "Pexels",
                "type": "url",
                "url": "https://www.pexels.com/"
-            }, {
-               "date_added": "13418648492698186",
-               "date_last_used": "0",
-               "guid": "51af2c7b-3c10-4225-a71c-a897bed15bca",
-               "id": "34",
-               "meta_info": {
-                  "power_bookmark_meta": ""
-               },
-               "name": "API keys | Google AI Studio",
-               "type": "url",
-               "url": "https://aistudio.google.com/app/api-keys?project=REDACTED"
             } ],
             "date_added": "13417948661645635",
             "date_last_used": "0",
