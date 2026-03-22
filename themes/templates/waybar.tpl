@@ -188,3 +188,21 @@ tooltip label {
     background: rgba({{red_r}}, {{red_g}}, {{red_b}}, 0.25);
     color: #{{red_bright}};
 }
+
+#custom-notif-toggle {
+    color: #{{text}};
+    padding: 0 10px;
+    margin: 4px 2px;
+    border-radius: 10px;
+    background: rgba({{bg_surface_r}}, {{bg_surface_g}}, {{bg_surface_b}}, 0.5);
+    font-size: 14px;
+    transition: all 0.3s ease;
+}
+
+#custom-notif-toggle:hover {
+    background: rgba({{bg_surface_r}}, {{bg_surface_g}}, {{bg_surface_b}}, 0.85);
+}
+
+#custom-notif-toggle.paused {
+    color: #{{text_dim}};
+}

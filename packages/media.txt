@@ -1,4 +1,5 @@
 # media.txt – PipeWire audio stack & media tools
+ffmpeg
 pipewire
 pipewire-alsa
 pipewire-jack

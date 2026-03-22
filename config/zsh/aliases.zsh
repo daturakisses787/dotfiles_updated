@@ -109,3 +109,10 @@ alias xpaste='wl-paste'
 alias wallpaper='~/.config/scripts/wallpaper.sh &'
 alias theme-dark='~/.config/scripts/theme-toggle.sh dark'
 alias theme-light='~/.config/scripts/theme-toggle.sh light'
+
+# ==============================================================================
+# Eigene Commands
+# ==============================================================================
+alias obsi='cd Obsidian/EdensGarden && claude'
+alias webui='cd Projects/MoneyPrinterTurbo && source venv/bin/activate && streamlit run webui/Main.py'
+alias tiktok='cd Projects/tiktok-automation && uv run tiktok run -n'

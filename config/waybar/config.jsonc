@@ -27,6 +27,7 @@
         "battery",
         "clock",
         "tray",
+        "custom/notif-toggle",
         "custom/caffeine",
         "custom/power"
     ],
@@ -159,6 +160,15 @@
     "tray": {
         "icon-size": 16,
         "spacing": 8
+    },
+
+    "custom/notif-toggle": {
+        "exec": "~/.local/bin/notif-toggle.sh status",
+        "return-type": "json",
+        "interval": "once",
+        "signal": 9,
+        "on-click": "~/.local/bin/notif-toggle.sh toggle",
+        "tooltip": true
     },
 
     "custom/caffeine": {

@@ -22,6 +22,10 @@ obs-cmd
 # AI Assistant
 claude-code
 
+# Speech-to-Text
+# Note: Whisper model must be downloaded manually to ~/.local/share/whisper-cpp/
+whisper-cpp
+
 # Content Creation
 buzz
 

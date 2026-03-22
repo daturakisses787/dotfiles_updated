@@ -15,6 +15,24 @@ readonly TRANSITION="${WALLPAPER_TRANSITION:-wipe}"
 readonly TRANSITION_DURATION="${WALLPAPER_TRANSITION_DURATION:-2}"
 readonly TRANSITION_FPS="${WALLPAPER_TRANSITION_FPS:-60}"
 readonly TRANSITION_ANGLE="${WALLPAPER_TRANSITION_ANGLE:-30}"
+readonly PID_FILE="${XDG_RUNTIME_DIR:-/tmp}/wallpaper-daemon.pid"
+
+is_daemon_running() {
+    [[ -f "$PID_FILE" ]] && kill -0 "$(cat "$PID_FILE")" 2>/dev/null
+}
+
+stop_daemon() {
+    if [[ -f "$PID_FILE" ]]; then
+        kill "$(cat "$PID_FILE")" 2>/dev/null || true
+        rm -f "$PID_FILE"
+    fi
+}
+
+start_daemon() {
+    local scripts_dir
+    scripts_dir="$(dirname "$(readlink -f "$0")")"
+    "${scripts_dir}/wallpaper.sh" &
+}
 
 if [[ ! -d "$WALLPAPER_DIR" ]]; then
     notify-send "Wallpaper Picker" "Wallpaper directory not found: $WALLPAPER_DIR"
@@ -45,12 +63,33 @@ for wp in "${wallpapers[@]}"; do
     rofi_input+="${name}\0icon\x1f${wp}\n"
 done
 
+# Prepend rotation toggle entry
+readonly ROTATION_LABEL_ON="⟳  Zufälliger Wechsel  [läuft]"
+readonly ROTATION_LABEL_OFF="⟳  Zufälliger Wechsel  [gestoppt]"
+if is_daemon_running; then
+    rotation_entry="${ROTATION_LABEL_ON}\0icon\x1fmedia-playlist-shuffle\n"
+else
+    rotation_entry="${ROTATION_LABEL_OFF}\0icon\x1fmedia-playlist-shuffle\n"
+fi
+rofi_input="${rotation_entry}${rofi_input}"
+
 # Show rofi picker and get selection
 chosen="$(printf '%b' "$rofi_input" | rofi -dmenu \
     -i \
     -p "" \
     -theme "$ROFI_THEME" \
     -show-icons)" || exit 0
+
+# Handle rotation toggle
+if [[ "$chosen" == "$ROTATION_LABEL_ON" ]]; then
+    stop_daemon
+    notify-send "Wallpaper" "Zufälliger Wechsel gestoppt"
+    exit 0
+elif [[ "$chosen" == "$ROTATION_LABEL_OFF" ]]; then
+    start_daemon
+    notify-send "Wallpaper" "Zufälliger Wechsel gestartet"
+    exit 0
+fi
 
 # Find the full path matching the chosen name
 selected_path=""
@@ -66,6 +105,9 @@ done
 if [[ -z "$selected_path" ]]; then
     exit 1
 fi
+
+# Stop rotation daemon if running (single wallpaper selected)
+stop_daemon
 
 # Apply wallpaper with swww
 swww img "$selected_path" \

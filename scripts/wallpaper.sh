@@ -14,6 +14,7 @@ readonly TRANSITION="${WALLPAPER_TRANSITION:-wipe}"
 readonly TRANSITION_DURATION="${WALLPAPER_TRANSITION_DURATION:-2}"
 readonly TRANSITION_FPS="${WALLPAPER_TRANSITION_FPS:-60}"
 readonly TRANSITION_ANGLE="${WALLPAPER_TRANSITION_ANGLE:-30}"
+readonly PID_FILE="${XDG_RUNTIME_DIR:-/tmp}/wallpaper-daemon.pid"
 
 # Ensure cache directory exists
 mkdir -p "$(dirname "$CURRENT_LINK")"
@@ -96,6 +97,10 @@ main() {
         set_random_wallpaper
         exit $?
     fi
+
+    # Write PID file so wallpaper-picker can detect and stop the daemon
+    echo $$ > "$PID_FILE"
+    trap 'rm -f "$PID_FILE"' EXIT INT TERM
 
     # Rotation loop
     while true; do

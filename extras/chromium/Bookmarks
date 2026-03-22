@@ -1,10 +1,10 @@
 {
-   "checksum": "a30c7c4b84f324cf365163455d995e12",
+   "checksum": "93dd3b5b4f34ac30a4735bcbe9f5c791",
    "roots": {
       "bookmark_bar": {
          "children": [ {
             "date_added": "13415818719918406",
-            "date_last_used": "13416693641904054",
+            "date_last_used": "13418232094762657",
             "guid": "6162a2cc-15d5-459d-adb2-ee7570f490c5",
             "id": "13",
             "meta_info": {
@@ -15,7 +15,7 @@
             "url": "https://launcher.keychron.com/#/not-connect"
          }, {
             "date_added": "13415991025880577",
-            "date_last_used": "13416253940156848",
+            "date_last_used": "13418649153699302",
             "guid": "fdf17d98-309b-4c43-a2cd-ad74418743be",
             "id": "19",
             "meta_info": {
@@ -26,7 +26,7 @@
             "url": "https://software.darkproject.eu/"
          }, {
             "date_added": "13415372246659200",
-            "date_last_used": "13416186805435273",
+            "date_last_used": "13418656751692499",
             "guid": "75da97da-31e5-48ac-a902-8b34d636dd4b",
             "id": "5",
             "meta_info": {
@@ -37,7 +37,7 @@
             "url": "https://www.google.com/?hl=de"
          }, {
             "date_added": "13415372414071269",
-            "date_last_used": "13416847377050655",
+            "date_last_used": "13418648314202394",
             "guid": "8beaad93-40be-44b4-8a81-5fa1e6862b65",
             "id": "6",
             "meta_info": {
@@ -48,7 +48,7 @@
             "url": "https://claude.ai/new"
          }, {
             "date_added": "13415819610791048",
-            "date_last_used": "13416850512542934",
+            "date_last_used": "13418642498421700",
             "guid": "1856f8f8-9921-4c71-834a-b904b8b374d5",
             "id": "14",
             "meta_info": {
@@ -58,19 +58,41 @@
             "type": "url",
             "url": "https://github.com/"
          }, {
-            "date_added": "13415819630533833",
-            "date_last_used": "13416190426958935",
-            "guid": "31162139-53a4-468f-b4be-5bf308a6a134",
-            "id": "15",
+            "date_added": "13417789458930142",
+            "date_last_used": "13418311177985015",
+            "guid": "f9edddc5-9e4b-4fdd-be76-be8332e5a74f",
+            "id": "24",
             "meta_info": {
                "power_bookmark_meta": ""
             },
-            "name": "Google Kalender ",
+            "name": "Syncthing",
             "type": "url",
-            "url": "https://calendar.google.com/calendar/u/0/r"
+            "url": "http://localhost:8384/"
+         }, {
+            "date_added": "13417948626013383",
+            "date_last_used": "13417967985370905",
+            "guid": "107d9494-0263-49f6-bd8d-fc57f112587a",
+            "id": "29",
+            "meta_info": {
+               "power_bookmark_meta": ""
+            },
+            "name": "LeetCode ",
+            "type": "url",
+            "url": "https://leetcode.com/"
+         }, {
+            "date_added": "13417800325889015",
+            "date_last_used": "13418509688071862",
+            "guid": "295f75e8-883e-4bcd-b70e-3e0f78f9d107",
+            "id": "26",
+            "meta_info": {
+               "power_bookmark_meta": ""
+            },
+            "name": "Crunchyroll: Watch Popular Anime, Play Games & Shop Online",
+            "type": "url",
+            "url": "https://www.crunchyroll.com/discover"
          }, {
             "date_added": "13415372437713375",
-            "date_last_used": "13416524995084033",
+            "date_last_used": "13418656345947519",
             "guid": "3fdbb29a-412b-423a-9914-ba29d9703375",
             "id": "7",
             "meta_info": {
@@ -80,41 +102,8 @@
             "type": "url",
             "url": "https://www.youtube.com/"
          }, {
-            "date_added": "13415377744575746",
-            "date_last_used": "13416186815642872",
-            "guid": "8c47a2d1-eb0b-46a1-a521-bfa72ac22e09",
-            "id": "11",
-            "meta_info": {
-               "power_bookmark_meta": ""
-            },
-            "name": "Canva",
-            "type": "url",
-            "url": "https://www.canva.com/"
-         }, {
-            "date_added": "13415819659238650",
-            "date_last_used": "13416186816218664",
-            "guid": "c21f28a2-e4ca-4dfb-a614-2eb04b4fc894",
-            "id": "16",
-            "meta_info": {
-               "power_bookmark_meta": ""
-            },
-            "name": "Pixabay - Stock Media",
-            "type": "url",
-            "url": "https://pixabay.com/de/"
-         }, {
-            "date_added": "13415819688295540",
-            "date_last_used": "13416186818201412",
-            "guid": "a65363c5-c61a-47a8-aab9-30571fdd876e",
-            "id": "17",
-            "meta_info": {
-               "power_bookmark_meta": ""
-            },
-            "name": "Unplash - Stock Photos",
-            "type": "url",
-            "url": "https://unsplash.com/"
-         }, {
             "date_added": "13416154774757351",
-            "date_last_used": "13416518584573915",
+            "date_last_used": "13417282429900206",
             "guid": "f7df49af-383f-490d-95d2-5d5d878e84ee",
             "id": "21",
             "meta_info": {
@@ -123,10 +112,74 @@
             "name": "roadmap.sh",
             "type": "url",
             "url": "https://roadmap.sh/"
+         }, {
+            "children": [ {
+               "date_added": "13415377744575746",
+               "date_last_used": "13417282421090089",
+               "guid": "8c47a2d1-eb0b-46a1-a521-bfa72ac22e09",
+               "id": "11",
+               "meta_info": {
+                  "power_bookmark_meta": ""
+               },
+               "name": "Canva",
+               "type": "url",
+               "url": "https://www.canva.com/"
+            }, {
+               "date_added": "13415819688295540",
+               "date_last_used": "13417282427266354",
+               "guid": "a65363c5-c61a-47a8-aab9-30571fdd876e",
+               "id": "17",
+               "meta_info": {
+                  "power_bookmark_meta": ""
+               },
+               "name": "Unplash - Stock Photos",
+               "type": "url",
+               "url": "https://unsplash.com/"
+            }, {
+               "date_added": "13415819659238650",
+               "date_last_used": "13417282424551432",
+               "guid": "c21f28a2-e4ca-4dfb-a614-2eb04b4fc894",
+               "id": "16",
+               "meta_info": {
+                  "power_bookmark_meta": ""
+               },
+               "name": "Pixabay - Stock Media",
+               "type": "url",
+               "url": "https://pixabay.com/de/"
+            }, {
+               "date_added": "13418302989115618",
+               "date_last_used": "13418647654844970",
+               "guid": "7203416f-940d-4e47-8a61-8bf84e9e553d",
+               "id": "32",
+               "meta_info": {
+                  "power_bookmark_meta": ""
+               },
+               "name": "Pexels",
+               "type": "url",
+               "url": "https://www.pexels.com/"
+            }, {
+               "date_added": "13418648492698186",
+               "date_last_used": "0",
+               "guid": "51af2c7b-3c10-4225-a71c-a897bed15bca",
+               "id": "34",
+               "meta_info": {
+                  "power_bookmark_meta": ""
+               },
+               "name": "API keys | Google AI Studio",
+               "type": "url",
+               "url": "https://aistudio.google.com/app/api-keys?project=REDACTED"
+            } ],
+            "date_added": "13417948661645635",
+            "date_last_used": "0",
+            "date_modified": "13418648492698186",
+            "guid": "69f66d44-56d5-4d24-b6dd-464ead37f587",
+            "id": "30",
+            "name": "Content Stuff",
+            "type": "folder"
          } ],
          "date_added": "13415372230389770",
          "date_last_used": "0",
-         "date_modified": "13416154774757351",
+         "date_modified": "13417948661645786",
          "guid": "0bc5d13f-2cba-5d74-951f-3f233fe6c908",
          "id": "1",
          "name": "Bookmarks bar",
