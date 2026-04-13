@@ -114,8 +114,8 @@ zstyle ':completion:*:descriptions' format '%B%d%b'
 # To customize prompt, run `p10k configure` or edit ~/.config/zsh/.p10k.zsh.
 [[ ! -f ~/.config/zsh/.p10k.zsh ]] || source ~/.config/zsh/.p10k.zsh
 
-#Gemini API
-export GEMINI_API_KEY="AIzaSyAQRwOOlLaqmGg3crgtu7iTkZ1VC2ZjdZQ"
+# Secrets (not tracked in git)
+[[ -f "${ZDOTDIR:-$HOME/.config/zsh}/.secrets" ]] && source "${ZDOTDIR:-$HOME/.config/zsh}/.secrets"
 
 . "$HOME/.local/share/../bin/env"
 
